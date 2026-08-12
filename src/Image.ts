@@ -16,7 +16,7 @@ export const getImage = async (image: sharp.Sharp): Promise<Image> => {
   const {
     info: { width, height, channels },
     data,
-  } = await image.raw().toBuffer({ resolveWithObject: true });
+  } = await image.rotate().raw().toBuffer({ resolveWithObject: true });
   const raw = await sharp(data, {
     raw: { width, height, channels },
   });
